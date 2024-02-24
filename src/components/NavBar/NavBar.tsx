@@ -1,4 +1,5 @@
 import React, { ReactElement, cloneElement, isValidElement, Children } from 'react';
+import { Link } from 'react-router-dom';
 import useNavBar from './navbar.hooks';
 
 interface NavbarProps {
@@ -20,7 +21,7 @@ export default function Navbar({ children }: NavbarProps) {
 
   return (
     <nav role='navigation' className='bg-gray-800 child:mx-2 md:px-4 px-2'>
-      <HamBurgerIcon setExpanded={setExpanded} expanded={expanded} />
+      <HamBurgerIcon setExpanded={setExpanded} expanded={expanded} isMobile={isMobile} />
       {/** Navigation Content */}
       <div
         className={`flex flex-col ${isMobile ? 'space-y-1 px-2 pb-3' : 'items-center md:h-16 md:flex-row md:space-x-4'}`}
@@ -35,17 +36,17 @@ export default function Navbar({ children }: NavbarProps) {
 
 export const NavItem = ({ isMobile, text, current, href = '#' }: any) => {
   return (
-    <a
-      href={href}
+    <Link //csr
+      to={href}
       className={`rounded-md px-3 py-2  ${isMobile ? 'text-base' : 'text-sm'} font-medium text-gray-300 hover:bg-gray-700 hover:text-white`}
       {...(current && { 'aria-current': 'page' })}
     >
       <h4>{text}</h4>
-    </a>
+    </Link>
   );
 };
 
-const HamBurgerIcon = ({ setExpanded, expanded }: any) => (
+const HamBurgerIcon = ({ setExpanded, expanded, isMobile }: any) => (
   <div className='flex h-16 items-center justify-between focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white md:hidden'>
     <button
       type='button'
