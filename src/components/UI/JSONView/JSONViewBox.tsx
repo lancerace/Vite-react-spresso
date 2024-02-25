@@ -2,7 +2,7 @@ import { IPostItems } from '../../../api/posts/posts';
 
 const JSONViewBox = ({ data, jsonViewIds }: any) => (
   <div className='flex flex-col items-center border-2 shadow-lg'>
-    <h2>Selected rows</h2>
+    <h2>Selected rows (Json View)</h2>
     {data
       .filter((item: IPostItems) => jsonViewIds.includes(item.id))
       .map((item: IPostItems, index: number) => (
