@@ -1,20 +1,34 @@
 import { useQuery } from '@tanstack/react-query';
-import { getUsers } from '../../api/users/users';
+import SampleTable from '../UI/Table/Table';
 import Spinner from '../UI/Spinner';
+import { IPostItems, getItems } from '../../api/posts/posts';
+import { useState } from 'react';
+import JSONViewBox from '../UI/JSONView/JSONViewBox';
 
 const PostList = () => {
-  const { data, isLoading, isSuccess }: any = useQuery({ queryKey: ['getUsers'], queryFn: getUsers, staleTime: 300000 });
+  const { data, isLoading, isSuccess }: { data?: IPostItems[]; isLoading: boolean; isSuccess: boolean } = useQuery({
+    queryKey: ['getItems'],
+    queryFn: getItems
+  });
+  const [jsonViewIds, setJsonViewIds] = useState<any>([]);
 
   if (isLoading) return <Spinner />;
-
   return (
-    <div className='h-screen flex justify-center items-center'>
-      <>
-        {isSuccess &&
-          [data.data].map((data: any, index) => {
-            return <div key={`post-${index}`}>{data.species.name}</div>;
-          })}
-      </>
+    <div className='h-screen flex flex-col items-center'>
+      <div>
+        Click <b>quantity</b> or <b>price</b> to sort asc order, click again to return to default
+      </div>
+      {isSuccess && (
+        <SampleTable
+          data={data}
+          headers={data && Object.keys(data[0])}
+          sortByColumns={['price', 'quantity']}
+          className='flex flex-col'
+          setJsonViewIds={setJsonViewIds}
+        />
+      )}
+
+      <JSONViewBox data={data} jsonViewIds={jsonViewIds} />
     </div>
   );
 };

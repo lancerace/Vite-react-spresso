@@ -12,7 +12,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className='w-screen flex-col'>
         <Navbar>
-          {['Users', 'Posts'].map((text, index) => (
+          {['Home', 'Posts'].map((text, index) => (
             <NavItem key={index + '_navbar'} text={text} current={location.pathname === '/' + _.lowerFirst(text)} href={_.lowerFirst(text)} />
           ))}
         </Navbar>

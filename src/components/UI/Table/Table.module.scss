@@ -1,0 +1,52 @@
+/* Example styles for Form.Group */
+#search {
+    margin-bottom: 20px; /* Adjust margin-bottom as needed */
+}
+
+/* Example styles for Form.Control */
+#search input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+/* Example styles for placeholder */
+#search input[type="text"]::placeholder {
+    color: #999; /* Adjust placeholder color as needed */
+}
+
+/* Example styles for Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust margin-top as needed */
+}
+
+.pagination .pageLink {
+    color: #007bff; /* Link color */
+    background-color: #fff; /* Background color */
+    border: 1px solid #007bff; /* Border color */
+}
+
+.pagination .pageLink:hover {
+    color: #0056b3; /* Hover link color */
+    background-color: #e9ecef; /* Hover background color */
+    border-color: #007bff; /* Hover border color */
+}
+
+.pagination .page-item.active .pageLink {
+    background-color: #007bff; /* Active page background color */
+    border-color: #007bff; /* Active page border color */
+}
+
+.pagination .page-item.disabled .pageLink {
+    color: #6c757d; /* Disabled link color */
+    pointer-events: none; /* Disable pointer events */
+}
+
+.pagination .pageLink:focus {
+    box-shadow: none; /* Remove focus box shadow */
+}

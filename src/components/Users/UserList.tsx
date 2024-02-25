@@ -1,7 +1,7 @@
 const UserList = () => {
   return (
     <div className='h-screen flex justify-center'>
-      <h1>User List</h1>
+      <h1>Home Page</h1>
     </div>
   );
 };
