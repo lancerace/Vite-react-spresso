@@ -4,10 +4,11 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 ## Components
 
-- Added Eslint, Prettier configuration
-- React router dom v6
-- Search by **name** or **category**...
-- Sort by Price, Quantity
+- Added Eslint, Prettier configuration.
+- React router dom v6.
+- Search by **name** or **category**.
+- Sort by **Price**, **Quantity**.
+- Tailwind,react-bootstrap,scss module, 2 pages.
 
 ### To run the project
 ```js
